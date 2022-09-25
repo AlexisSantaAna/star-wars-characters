@@ -9,7 +9,8 @@ export default function App() {
     "Star-White": require("./assets/fonts/Star-White.ttf"),
     "Lato-Regular": require("./assets/fonts/Lato-Regular.ttf"),
     "Lato-Bold": require("./assets/fonts/Lato-Bold.ttf"),
-    "Lato-Light": require("./assets/fonts/Lato-Light.ttf")
+    "Lato-Light": require("./assets/fonts/Lato-Light.ttf"),
+    "Dos": require("./assets/fonts/Dos.ttf")
   });
 
   if (!loaded) {

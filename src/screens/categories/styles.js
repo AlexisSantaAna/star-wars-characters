@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#000"
   },
   main: {
-    color: "#fff",
+    color: "#ffd409",
     textAlign: "center",
     fontSize: 30,
     fontFamily: "Star-Regular"

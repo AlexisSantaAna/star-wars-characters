@@ -6,19 +6,18 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 14,
-    backgroundColor: "#121212",
+    backgroundColor: "#000055",
     width: "100%",
   },
   title: {
     color: "#fff",
-    fontFamily: "Lato-Regular",
-    fontSize: 20,
-    paddingVertical: 5,
+    fontFamily: "Dos",
+    fontSize: 24,
+    paddingVertical: 10
   },
   image: {
-    flex: 1,
     width: 240,
-    height: 320,
+    height: 350,
     resizeMode: "contain"
   }
 });

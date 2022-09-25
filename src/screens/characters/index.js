@@ -4,9 +4,8 @@ import { ActivityIndicator, FlatList, View } from "react-native";
 import CharactersStarWars from "../../components/CharactersStarWars";
 import { styles } from "./styles";
 
-const Characters = ({ route }) => {
+const Characters = ({ route, navigation }) => {
   const { species } = route.params;
-  console.log(species);
 
   const [loading, setLoading] = useState(true);
   const [db, setDb] = useState([]);
@@ -29,11 +28,12 @@ const Characters = ({ route }) => {
   console.log(db);
 
   return (
-    <View>
+    <View style={styles.externalContainer}>
       {loading ? (
         <ActivityIndicator size="large" color="#fff" />
       ) : (
         <FlatList
+          style={styles.container}
           data={db}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
@@ -41,6 +41,7 @@ const Characters = ({ route }) => {
               image={`${item?.image}`}
               name={item.name}
               item={item}
+              navigation={navigation}
             />
           )}
         />
