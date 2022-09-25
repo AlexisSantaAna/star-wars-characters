@@ -30,7 +30,7 @@ const Characters = ({ route, navigation }) => {
   return (
     <View style={styles.externalContainer}>
       {loading ? (
-        <ActivityIndicator size="large" color="#fff" />
+        <ActivityIndicator size="large" color="#fff" style={styles.loader}/>
       ) : (
         <FlatList
           style={styles.container}
