@@ -29,7 +29,7 @@ const Characters = ({ route }) => {
   console.log(db);
 
   return (
-    <View style={styles.container}>
+    <View>
       {loading ? (
         <ActivityIndicator size="large" color="#fff" />
       ) : (
