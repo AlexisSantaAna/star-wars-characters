@@ -20,7 +20,7 @@ const Character = ({ route }) => {
           <Text style={styles.title}>Required info incoming...</Text>
         ) : (
           <>
-            <Text style={styles.title}>{name}</Text>
+            <Text style={styles.text}>Name: {name}</Text>
             <Text style={styles.text}>Height: {height}</Text>
             <Text style={styles.text}>Gender: {gender}</Text>
             {homeworld && <Text style={styles.text}>Homeworld: {homeworld}</Text>}

@@ -27,23 +27,24 @@ const Characters = ({ route, navigation }) => {
 
   return (
     <View style={styles.externalContainer}>
-      {loading ? (
-        <ActivityIndicator size="large" color="#fff" style={styles.loader}/>
-      ) : (
-        <FlatList
-          style={styles.container}
-          data={db}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <CharactersStarWars
-              image={`${item?.image}`}
-              name={item.name}
-              item={item}
-              navigation={navigation}
-            />
-          )}
-        />
-      )}
+      <View style={styles.container}>
+        {loading ? (
+          <ActivityIndicator size="large" color="#fff" style={styles.loader} />
+        ) : (
+          <FlatList
+            data={db}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <CharactersStarWars
+                image={`${item?.image}`}
+                name={item.name}
+                item={item}
+                navigation={navigation}
+              />
+            )}
+          />
+        )}
+      </View>
     </View>
   );
 };

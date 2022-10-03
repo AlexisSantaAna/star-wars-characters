@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 6,
     borderColor: "#fff",
-    borderWidth: 2,
+    borderWidth: 2
   },
   externalContainer: {
     flex: 1,

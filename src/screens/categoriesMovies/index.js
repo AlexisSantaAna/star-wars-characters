@@ -6,10 +6,10 @@ const CategoriesMovies = ({ navigation }) => {
   return (
     <ImageBackground style={styles.container} source={require("../../../assets/background2.gif")}>
       <Image source={require("../../../assets/logo.png")} />
-      <TouchableOpacity onPress={() => navigation.navigate("Movies", {saga: "original"})} >
+      <TouchableOpacity onPress={() => navigation.navigate("Movies", {saga: "Original saga"})} >
         <Text style={styles.main}>original trilogy</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Movies", {saga: "prequels"})}>
+      <TouchableOpacity onPress={() => navigation.navigate("Movies", {saga: "Prequels"})}>
         <Text style={styles.main}>Prequels</Text>
       </TouchableOpacity>
     </ImageBackground>

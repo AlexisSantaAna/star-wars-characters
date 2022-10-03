@@ -7,15 +7,17 @@ const Movie = ({ route }) => {
 
   const { title, opening, director, producer, release, id } = route.params;
 
-  const movie = [{
-    title,
-    opening,
-    director,
-    producer,
-    release,
-    id
-  }];
-  
+  const movie = [
+    {
+      title,
+      opening,
+      director,
+      producer,
+      release,
+      id,
+    },
+  ];
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -24,7 +26,7 @@ const Movie = ({ route }) => {
 
   const renderItem = ({ item }) => (
     <>
-      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.text}>Title: {item.title}</Text>
       <Text style={styles.text}>Director: {item.director}</Text>
       <Text style={styles.text}>Producer: {item.producer}</Text>
       <Text style={styles.text}>Release date: {item.release}</Text>
