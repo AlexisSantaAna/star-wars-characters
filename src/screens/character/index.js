@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { ImageBackground, Text, View } from "react-native";
 import { styles } from "./styles";
 
 const Character = ({ route }) => {
@@ -14,7 +14,7 @@ const Character = ({ route }) => {
   }, []);
 
   return (
-    <View style={styles.externalContainer}>
+    <ImageBackground style={styles.externalContainer} source={require("../../../assets/background.gif")}>
       <View style={styles.container}>
         {loading ? (
           <Text style={styles.title}>Required info incoming...</Text>
@@ -40,7 +40,7 @@ const Character = ({ route }) => {
           </>
         )}
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 

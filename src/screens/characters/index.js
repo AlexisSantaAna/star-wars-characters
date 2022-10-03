@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList, View } from "react-native";
+import { ActivityIndicator, FlatList, ImageBackground, View } from "react-native";
 import CharactersStarWars from "../../components/CharactersStarWars";
 import { styles } from "./styles";
 
@@ -26,11 +26,12 @@ const Characters = ({ route, navigation }) => {
   }, []);
 
   return (
-    <View style={styles.externalContainer}>
-      <View style={styles.container}>
-        {loading ? (
-          <ActivityIndicator size="large" color="#fff" style={styles.loader} />
-        ) : (
+    <ImageBackground style={styles.externalContainer} source={require("../../../assets/background.gif")}>
+      {loading && (
+        <ActivityIndicator size="large" color="#fff" style={styles.loader} />
+      )}
+      {!loading && (
+        <View style={styles.container}>
           <FlatList
             data={db}
             keyExtractor={(item) => item.id}
@@ -43,9 +44,9 @@ const Characters = ({ route, navigation }) => {
               />
             )}
           />
-        )}
-      </View>
-    </View>
+        </View>
+      )}
+    </ImageBackground>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, ImageBackground } from "react-native";
 import { styles } from "./styles";
 
 const Movie = ({ route }) => {
@@ -35,19 +35,23 @@ const Movie = ({ route }) => {
   );
 
   return (
-    <View style={styles.externalContainer}>
+    <ImageBackground
+      style={styles.externalContainer}
+      source={require("../../../assets/background.gif")}
+    >
       <View style={styles.container}>
         {loading ? (
           <Text style={styles.title}>Required info incoming...</Text>
         ) : (
           <FlatList
+            showsVerticalScrollIndicator={false}
             data={movie}
             renderItem={renderItem}
             keyExtractor={(item) => item.id.toString()}
           />
         )}
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 

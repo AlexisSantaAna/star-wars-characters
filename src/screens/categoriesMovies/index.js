@@ -4,8 +4,8 @@ import { styles } from "./styles";
 
 const CategoriesMovies = ({ navigation }) => {
   return (
-    <ImageBackground style={styles.container} source={require("../../../assets/background2.gif")}>
-      <Image source={require("../../../assets/logo.png")} />
+    <ImageBackground style={styles.container} source={require("../../../assets/background.gif")}>
+      <Image source={require("../../../assets/logo.png")} style={{height: 180, resizeMode: "contain"}}/>
       <TouchableOpacity onPress={() => navigation.navigate("Movies", {saga: "Original saga"})} >
         <Text style={styles.main}>original trilogy</Text>
       </TouchableOpacity>

@@ -4,8 +4,8 @@ import { styles } from "./styles";
 
 const Categories = ({ navigation }) => {
   return (
-    <ImageBackground style={styles.container} source={require("../../../assets/background.gif")}>
-      <Image source={require("../../../assets/logo.png")} />
+    <ImageBackground resizeMode="cover" style={styles.container} source={require("../../../assets/background.gif")}>
+      <Image source={require("../../../assets/logo.png")} style={{height: 180, resizeMode: "contain"}}/>
       <TouchableOpacity onPress={() => navigation.navigate("Characters", {species: "Human"})} >
         <Text style={styles.main}>Humans</Text>
       </TouchableOpacity>
