@@ -25,8 +25,6 @@ const Characters = ({ route, navigation }) => {
       .then(() => setLoading(false));
   }, []);
 
-  console.log(db);
-
   return (
     <View style={styles.externalContainer}>
       {loading ? (

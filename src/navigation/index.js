@@ -1,11 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import CharactersNavigator from "./starwars";
+import Tabs from "./tabs";
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <CharactersNavigator />
+      <Tabs />
     </NavigationContainer>
   );
 };
