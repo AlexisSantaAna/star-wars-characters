@@ -1,44 +1,59 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList, View, Text, ImageBackground } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  View,
+  Text,
+  ImageBackground,
+} from "react-native";
 import MoviesStarWars from "../../components/MoviesStarWars";
 import { styles } from "./styles";
+import { useSelector } from "react-redux";
 
 const Movies = ({ route, navigation }) => {
-  const { saga } = route.params;
-
   const [loading, setLoading] = useState(true);
-  const [db, setDb] = useState([]);
-  const [error, setError] = useState({});
-
+  const { saga } = route.params;
+  const movies = useSelector((state) => state.movies.filtered);
+  
   useEffect(() => {
-    axios
-      .get("https://swapi.dev/api/films/")
-      .then((response) =>
-        setDb(
-          response.data.results.filter((movie) => {
-            if (saga === "Original saga") {
-              return (
-                movie.episode_id === 4 ||
-                movie.episode_id === 5 ||
-                movie.episode_id === 6
-              );
-            } else {
-              return (
-                movie.episode_id === 1 ||
-                movie.episode_id === 2 ||
-                movie.episode_id === 3
-              );
-            }
-          })
-        )
-      )
-      .catch((error) => setError(error))
-      .then(() => setLoading(false));
-  }, []);
+    setLoading(false);
+  }, [movies]);
+
+  // const [db, setDb] = useState([]);
+  // const [error, setError] = useState({});
+
+  // useEffect(() => {
+  //   axios
+  //     .get("https://swapi.dev/api/films/")
+  //     .then((response) =>
+  //       setDb(
+  //         response.data.results.filter((movie) => {
+  //           if (saga === "Original saga") {
+  //             return (
+  //               movie.episode_id === 4 ||
+  //               movie.episode_id === 5 ||
+  //               movie.episode_id === 6
+  //             );
+  //           } else {
+  //             return (
+  //               movie.episode_id === 1 ||
+  //               movie.episode_id === 2 ||
+  //               movie.episode_id === 3
+  //             );
+  //           }
+  //         })
+  //       )
+  //     )
+  //     .catch((error) => setError(error))
+  //     .then(() => setLoading(false));
+  // }, []);
 
   return (
-    <ImageBackground style={styles.externalContainer} source={require("../../../assets/background.gif")}>
+    <ImageBackground
+      style={styles.externalContainer}
+      source={require("../../../assets/background.gif")}
+    >
       {loading && (
         <ActivityIndicator size="large" color="#fff" style={styles.loader} />
       )}
@@ -46,7 +61,7 @@ const Movies = ({ route, navigation }) => {
       {!loading && (
         <View style={styles.container}>
           <FlatList
-            data={db}
+            data={movies}
             keyExtractor={(item) => item.episode_id.toString()}
             renderItem={({ item }) => (
               <MoviesStarWars
