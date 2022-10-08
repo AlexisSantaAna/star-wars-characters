@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ImageBackground, Text, View } from "react-native";
 import { styles } from "./styles";
+import { useSelector } from "react-redux";
 
-const Character = ({ route }) => {
+const Character = () => {
   const [loading, setLoading] = useState(true);
 
-  const { name, height, gender, homeworld, hair, eyes, skin, died, cybernetics, creator, manufacturer, model, plating, masters, apprentices, classs, sensor } = route.params;
+  const character = useSelector((state) => state.characters.selected);
 
   useEffect(() => {
     setTimeout(() => {
@@ -14,29 +15,58 @@ const Character = ({ route }) => {
   }, []);
 
   return (
-    <ImageBackground style={styles.externalContainer} source={require("../../../assets/background.gif")}>
+    <ImageBackground
+      style={styles.externalContainer}
+      source={require("../../../assets/background.gif")}
+    >
       <View style={styles.container}>
         {loading ? (
           <Text style={styles.title}>Required info incoming...</Text>
         ) : (
           <>
-            <Text style={styles.text}>Name: {name}</Text>
-            <Text style={styles.text}>Height: {height}</Text>
-            <Text style={styles.text}>Gender: {gender}</Text>
-            {homeworld && <Text style={styles.text}>Homeworld: {homeworld}</Text>}
-            {died && <Text style={styles.text}>Death location: {died}</Text>}
-            {hair && <Text style={styles.text}>Hair: {hair}</Text>}
-            <Text style={styles.text}>Eyes: {eyes}</Text>
-            {skin && <Text style={styles.text}>Skin: {skin}</Text>}
-            {cybernetics && <Text style={styles.text}>Cybernetics: {cybernetics}</Text>}
-            {creator && <Text style={styles.text}>Creator: {creator}</Text>}
-            {manufacturer && <Text style={styles.text}>Manufacturer: {manufacturer}</Text>}
-            {model && <Text style={styles.text}>Model: {model}</Text>}
-            {plating && <Text style={styles.text}>Plating: {plating}</Text>}
-            {masters && <Text style={styles.text}>Masters: {masters}</Text>}
-            {apprentices && <Text style={styles.text}>Apprentices: {apprentices}</Text>}
-            {classs && <Text style={styles.text}>Class: {classs}</Text>}
-            {sensor && <Text style={styles.text}>Sensor: {sensor}</Text>}
+            <Text style={styles.text}>Name: {character.name}</Text>
+            <Text style={styles.text}>Height: {character.height}</Text>
+            <Text style={styles.text}>Gender: {character.gender}</Text>
+            {character.homeworld && (
+              <Text style={styles.text}>Homeworld: {character.homeworld}</Text>
+            )}
+            {character.died && (
+              <Text style={styles.text}>Death location: {character.died}</Text>
+            )}
+            {character.hair && <Text style={styles.text}>Hair: {character.hair}</Text>}
+            {character.eyes && <Text style={styles.text}>Eyes: {character.eyes}</Text>}
+            {character.skin && <Text style={styles.text}>Skin: {character.skin}</Text>}
+            {character.cybernetics && (
+              <Text style={styles.text}>
+                Cybernetics: {character.cybernetics}
+              </Text>
+            )}
+            {character.creator && (
+              <Text style={styles.text}>Creator: {character.creator}</Text>
+            )}
+            {character.manufacturer && (
+              <Text style={styles.text}>
+                Manufacturer: {character.manufacturer}
+              </Text>
+            )}
+            {character.model && <Text style={styles.text}>Model: {character.model}</Text>}
+            {character.plating && (
+              <Text style={styles.text}>Plating: {character.plating}</Text>
+            )}
+            {character.masters && (
+              <Text style={styles.text}>Masters: {character.masters}</Text>
+            )}
+            {character.apprentices && (
+              <Text style={styles.text}>
+                Apprentices: {character.apprentices}
+              </Text>
+            )}
+            {character.classs && (
+              <Text style={styles.text}>Class: {character.classs}</Text>
+            )}
+            {character.sensor && (
+              <Text style={styles.text}>Sensor: {character.sensor}</Text>
+            )}
           </>
         )}
       </View>

@@ -1,53 +1,22 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
   View,
-  Text,
   ImageBackground,
 } from "react-native";
 import MoviesStarWars from "../../components/MoviesStarWars";
 import { styles } from "./styles";
 import { useSelector } from "react-redux";
 
-const Movies = ({ route, navigation }) => {
+
+const Movies = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
-  const { saga } = route.params;
   const movies = useSelector((state) => state.movies.filtered);
   
   useEffect(() => {
     setLoading(false);
   }, [movies]);
-
-  // const [db, setDb] = useState([]);
-  // const [error, setError] = useState({});
-
-  // useEffect(() => {
-  //   axios
-  //     .get("https://swapi.dev/api/films/")
-  //     .then((response) =>
-  //       setDb(
-  //         response.data.results.filter((movie) => {
-  //           if (saga === "Original saga") {
-  //             return (
-  //               movie.episode_id === 4 ||
-  //               movie.episode_id === 5 ||
-  //               movie.episode_id === 6
-  //             );
-  //           } else {
-  //             return (
-  //               movie.episode_id === 1 ||
-  //               movie.episode_id === 2 ||
-  //               movie.episode_id === 3
-  //             );
-  //           }
-  //         })
-  //       )
-  //     )
-  //     .catch((error) => setError(error))
-  //     .then(() => setLoading(false));
-  // }, []);
 
   return (
     <ImageBackground
@@ -65,7 +34,7 @@ const Movies = ({ route, navigation }) => {
             keyExtractor={(item) => item.episode_id.toString()}
             renderItem={({ item }) => (
               <MoviesStarWars
-                name={item.title}
+                title={item.title}
                 item={item}
                 navigation={navigation}
                 episode={item.episode_id.toString()}

@@ -1,6 +1,6 @@
 import { characters } from "../../constants/data";
 import { characterTypes } from "../types";
-const { SELECT_CHARACTERS } = characterTypes;
+const { SELECT_CHARACTERS, SELECT_CHARACTER } = characterTypes;
 
 const initialState = {
   characters: characters,
@@ -18,6 +18,12 @@ const charactersReducer = (state = initialState, action) => {
         ...state,
         filtered: filteredCharacters,
       };
+    case SELECT_CHARACTER:
+      const selectedCharacter = characters.find(character => character.name == action.name)
+      return {
+        ...state,
+        selected: selectedCharacter
+      }
     default:
       return state;
   }

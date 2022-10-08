@@ -1,6 +1,6 @@
 import { movies } from "../../constants/data";
 import { movieTypes } from "../types";
-const { SELECT_MOVIES } = movieTypes;
+const { SELECT_MOVIES, SELECT_MOVIE } = movieTypes;
 
 const initialState = {
   movies: movies,
@@ -17,6 +17,12 @@ const moviesReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: filteredMovies,
+      };
+    case SELECT_MOVIE:
+      const selectedMovie = movies.find((movie) => movie.title == action.title);
+      return {
+        ...state,
+        selected: selectedMovie,
       };
     default:
       return state;

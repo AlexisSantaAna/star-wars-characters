@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, FlatList, ImageBackground } from "react-native";
 import { styles } from "./styles";
+import { useSelector } from "react-redux";
 
-const Movie = ({ route }) => {
+const Movie = () => {
   const [loading, setLoading] = useState(true);
 
-  const { title, opening, director, producer, release, id } = route.params;
-
+  const movieData = useSelector((state) => state.movies.selected);
+  const { title, opening_crawl, director, producer, release_date, episode_id } = movieData;
   const movie = [
     {
       title,
-      opening,
+      opening_crawl,
       director,
       producer,
-      release,
-      id,
+      release_date,
+      episode_id,
     },
   ];
 
@@ -29,8 +30,8 @@ const Movie = ({ route }) => {
       <Text style={styles.text}>Title: {item.title}</Text>
       <Text style={styles.text}>Director: {item.director}</Text>
       <Text style={styles.text}>Producer: {item.producer}</Text>
-      <Text style={styles.text}>Release date: {item.release}</Text>
-      <Text style={styles.opening}>{item.opening}</Text>
+      <Text style={styles.text}>Release date: {item.release_date}</Text>
+      <Text style={styles.opening}>{item.opening_crawl}</Text>
     </>
   );
 
@@ -47,7 +48,7 @@ const Movie = ({ route }) => {
             showsVerticalScrollIndicator={false}
             data={movie}
             renderItem={renderItem}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.episode_id.toString()}
           />
         )}
       </View>
