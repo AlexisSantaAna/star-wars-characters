@@ -4,7 +4,7 @@ import { styles } from "./styles";
 import { useSelector } from "react-redux";
 
 const Character = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const character = useSelector((state) => state.characters.selected);
 

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import colors from "../../utils/colors";
 
 export const styles = StyleSheet.create({
   title: {
@@ -7,12 +8,12 @@ export const styles = StyleSheet.create({
   container: {
     margin: 10,
     borderRadius: 6,
-    borderColor: "#fff",
+    borderColor: colors.white,
     borderWidth: 2,
   },
   externalContainer: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: colors.black,
   },
   loader: {
     flex: 1,

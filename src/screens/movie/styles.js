@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
+import colors from "../../utils/colors";
 
 export const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: "Dos",
-    color: "#fff",
+    color: colors.white,
     paddingVertical: 10,
     marginBottom: 10,
     textAlign: "center",
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
   opening: {
     fontSize: 20,
     fontFamily: "Dos",
-    color: "#ffd409",
+    color: colors.yellow,
     paddingTop: 30,
     marginBottom: 10,
     textAlign: "center",
@@ -20,23 +21,23 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     fontFamily: "Dos",
-    color: "#fff",
+    color: colors.white,
     paddingVertical: 2,
   },
   container: {
     flex: 1,
-    backgroundColor: "#000055",
+    backgroundColor: colors.background,
     margin: 10,
     borderRadius: 6,
-    borderColor: "#fff",
+    borderColor: colors.white,
     borderWidth: 2,
     padding: 20,
   },
   loading: {
-    color: "#fff",
+    color: colors.white,
   },
   externalContainer: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: colors.black,
   },
 });
