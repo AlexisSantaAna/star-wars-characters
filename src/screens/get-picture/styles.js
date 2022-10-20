@@ -4,9 +4,21 @@ import colors from "../../utils/colors";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginBottom: 20
+        alignItems: "center",
+        backgroundColor: colors.black,
     },
-    preview: {
+    scrollView: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    name: {
+        color: colors.yellow,
+        fontFamily: "Star-Regular",
+        fontSize: 26,
+        marginTop: 20,
+    },
+    preview: {        
+        marginTop: 20,
         width: "100%",
         height: 350,
         width: 280,
@@ -21,7 +33,4 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
     },
-    text: {
-        color: colors.white
-    }
 })

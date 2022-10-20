@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as ImagePicker from "expo-image-picker"
-import { View, Text, Image, Button } from "react-native"
+import { View, Text, Image, Button, TouchableOpacity } from "react-native"
 import { styles } from "./styles";
 import colors from "../../utils/colors";
 
@@ -9,6 +9,7 @@ const ImageSelector = ({ onImage }) => {
 
     const verifyPermissions = async () => {
         const { status } = await ImagePicker.requestCameraPermissionsAsync()
+        console.log(`Status: ${status}`)
 
         if (status !== "granted") {
             Alert.alert("You need to grant permiso a la cámara, guachin", [{ text: "Ok" }])
@@ -20,6 +21,8 @@ const ImageSelector = ({ onImage }) => {
     const onHandleTakePhoto = async () => {
         const hasPermission = await verifyPermissions()
 
+        console.log(`hasPermission: ${hasPermission}`)
+
         if (!hasPermission) return
 
         const image = await ImagePicker.launchCameraAsync({
@@ -27,6 +30,12 @@ const ImageSelector = ({ onImage }) => {
             aspect: [16, 9],
             quality: 0.5
         })
+
+        console.log(`image: ${image}`)
+
+        if (!image.cancelled) {
+            setPickedUrl(image.uri);
+        }
 
         setPickedUrl(image.uri)
         onImage(image.uri)
@@ -44,12 +53,7 @@ const ImageSelector = ({ onImage }) => {
             <Button
                 title="Take Photo"
                 color={colors.background}
-                style={styles.btn}
                 onPress={onHandleTakePhoto}
-            />
-            <Button
-                title="Submit!"
-                onPress={() => { }}
             />
         </View>
     )

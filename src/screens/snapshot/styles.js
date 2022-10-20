@@ -5,7 +5,11 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        backgroundColor: colors.black
+        backgroundColor: colors.black,
+    },
+    scrollView: {
+        justifyContent: "center",
+        alignItems: "center"
     },
     imageContainer: {
         borderRadius: 6,
