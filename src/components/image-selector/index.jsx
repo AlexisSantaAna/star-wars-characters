@@ -27,7 +27,7 @@ const ImageSelector = ({ onImage }) => {
 
         const image = await ImagePicker.launchCameraAsync({
             allowsEditing: true,
-            aspect: [16, 9],
+            aspect: [4, 5],
             quality: 0.5
         })
 

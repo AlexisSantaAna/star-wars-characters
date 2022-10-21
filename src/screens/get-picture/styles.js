@@ -17,11 +17,12 @@ export const styles = StyleSheet.create({
         fontSize: 26,
         marginTop: 20,
     },
-    preview: {        
+    preview: {
+        flexDirection: "row",      
         marginTop: 20,
         width: "100%",
-        height: 350,
-        width: 280,
+        height: 450,
+        width: 300,
         marginBottom: 10,
         alignItems: "center",
         justifyContent: "center",
@@ -33,4 +34,8 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
     },
+    sable: {
+        resizeMode: "center",
+        height: "100%"
+    }
 })
