@@ -3,8 +3,9 @@ import * as ImagePicker from "expo-image-picker"
 import { View, Text, Image, Button, TouchableOpacity } from "react-native"
 import { styles } from "./styles";
 import colors from "../../utils/colors";
+import { useEffect } from "react";
 
-const ImageSelector = ({ onImage }) => {
+const ImageSelector = ({ onImage, previousImage }) => {
     const [pickedUrl, setPickedUrl] = useState()
 
     const verifyPermissions = async () => {
@@ -21,8 +22,6 @@ const ImageSelector = ({ onImage }) => {
     const onHandleTakePhoto = async () => {
         const hasPermission = await verifyPermissions()
 
-        console.log(`hasPermission: ${hasPermission}`)
-
         if (!hasPermission) return
 
         const image = await ImagePicker.launchCameraAsync({
@@ -31,8 +30,6 @@ const ImageSelector = ({ onImage }) => {
             quality: 0.5
         })
 
-        console.log(`image: ${image}`)
-
         if (!image.cancelled) {
             setPickedUrl(image.uri);
         }
@@ -40,6 +37,10 @@ const ImageSelector = ({ onImage }) => {
         setPickedUrl(image.uri)
         onImage(image.uri)
     }
+
+    useEffect(() => {
+        setPickedUrl(previousImage)
+    }, [previousImage])
 
     return (
         <View style={styles.container}>
