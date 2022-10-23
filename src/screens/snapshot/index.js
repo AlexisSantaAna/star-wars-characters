@@ -13,9 +13,6 @@ const Snapshot = ({ navigation }) => {
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [previousImage, setPreviousImage] = useState("")
-    // const [previousImage, setPreviousImage] = useState("")
-    // const [previousName, setPreviousName] = useState("")
-    // const [previous, setPrevious] = useState(false)
 
     const onHandleChange = (text) => {
         setName(text)
@@ -57,7 +54,6 @@ const Snapshot = ({ navigation }) => {
                 <ImageSelector onImage={onHandleImage} previousImage={previousImage}/>
                 <TouchableOpacity onPress={() => {                    
                     deleteAll()                    
-                    // setPrevious(false)
                     insertion()
                     dispatch(selectSnapshot(name + " Skywalker", image))
                     navigation.navigate("Get Picture", { name: name + " Skywalker" })
@@ -65,7 +61,6 @@ const Snapshot = ({ navigation }) => {
                     <Text style={styles.label}>Create picture</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    // setPrevious(true)
                     loadSnapshot()
                 }}>
                     <Text style={styles.label}>Load previous</Text>

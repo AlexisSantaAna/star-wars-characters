@@ -21,7 +21,7 @@ export const insertSnapshot = (name, image) => {
     const promise = new Promise((resolve, reject) => {
         db.transaction((tx) => {
             tx.executeSql(
-                'REPLACE INTO snapshot (name, image) VALUES (?, ?);',
+                'INSERT INTO snapshot (name, image) VALUES (?, ?);',
                 [name, image],
                 (_, result) => resolve(result),
                 (_, err) =>  reject(err)
@@ -37,6 +37,7 @@ export const deleteSnapshot = () => {
         db.transaction((tx) => {
             tx.executeSql(
                 'DELETE FROM snapshot',
+                [],
                 () => resolve(),
                 (_, err) =>  reject(err)
             )

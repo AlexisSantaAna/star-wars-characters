@@ -10,7 +10,7 @@ const BottomTab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
-    <BottomTab.Navigator screenOptions={{ headerShown: false, tabBarStyle: {backgroundColor: colors.black, borderTopWidth: 0}, tabBarLabelStyle: {color: colors.white, fontSize: 16, fontFamily: "Dos"} }}>
+    <BottomTab.Navigator screenOptions={{ tabBarHideOnKeyboard: true, headerShown: false, tabBarStyle: {display: "flex", backgroundColor: colors.black, borderTopWidth: 0}, tabBarLabelStyle: {color: colors.white, fontSize: 16, fontFamily: "Dos"} }}>
       <BottomTab.Screen
         name="Personajes"
         component={CharactersNavigator}
