@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { ImageBackground, View, Text, TextInput, ScrollView, TouchableOpacity } from "react-native";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ImageSelector from "../../components/image-selector";
 import { getSnapshot, insertSnapshot, deleteSnapshot } from "../../db";
 import { selectSnapshot } from "../../store/actions";
@@ -10,6 +10,7 @@ import { styles } from "./styles";
 
 const Snapshot = ({ navigation }) => {
     const dispatch = useDispatch()
+    const isEmpty = useSelector((state) => state.snapshot.snapshot);
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [previousImage, setPreviousImage] = useState("")
@@ -38,6 +39,11 @@ const Snapshot = ({ navigation }) => {
         const result = await deleteSnapshot()
     }
 
+    const alerta = () => {
+        alert('Enter name and snapshot you must');
+        return;
+    }
+
     return (
         <ImageBackground style={styles.container} source={require("../../../assets/background.gif")} >
             <ScrollView contentContainerStyle={styles.scrollView}>
@@ -51,19 +57,23 @@ const Snapshot = ({ navigation }) => {
                         value={name}
                     />
                 </View>
-                <ImageSelector onImage={onHandleImage} previousImage={previousImage}/>
-                <TouchableOpacity onPress={() => {                    
-                    deleteAll()                    
-                    insertion()
-                    dispatch(selectSnapshot(name + " Skywalker", image))
-                    navigation.navigate("Get Picture", { name: name + " Skywalker" })
+                <ImageSelector onImage={onHandleImage} previousImage={previousImage} />
+                <TouchableOpacity onPress={() => {
+                    if (name && image) {
+                        deleteAll()
+                        insertion()
+                        dispatch(selectSnapshot(name + " Skywalker", image))
+                        navigation.navigate("Get Picture", { name: name + " Skywalker" })
+                    } else alerta()
                 }}>
                     <Text style={styles.label}>Create picture</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {
-                    loadSnapshot()
-                }}>
-                    <Text style={styles.label}>Load previous</Text>
+                <TouchableOpacity
+                    disabled={image && true}
+                    onPress={() => {
+                        loadSnapshot()
+                    }}>
+                    <Text style={!image ? styles.label : styles.disabled}>Load previous</Text>
                 </TouchableOpacity>
             </ScrollView>
         </ImageBackground >

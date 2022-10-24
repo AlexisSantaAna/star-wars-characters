@@ -52,7 +52,7 @@ const ImageSelector = ({ onImage, previousImage }) => {
                 )}
             </View>
             <Button
-                title="Take Photo"
+                title="Take Selfie"
                 color={colors.background}
                 onPress={onHandleTakePhoto}
             />

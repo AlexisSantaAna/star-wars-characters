@@ -39,6 +39,14 @@ export const styles = StyleSheet.create({
         color: colors.white,
         textAlign: "center",
         fontFamily: "Dos",
-        fontSize: 22
+        fontSize: 24,
+        marginVertical: 2
+    },
+    disabled: {
+        color: colors.gray,
+        textAlign: "center",
+        fontFamily: "Dos",
+        fontSize: 24,
+        marginVertical: 2
     }
 })

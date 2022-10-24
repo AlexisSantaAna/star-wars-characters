@@ -4,7 +4,7 @@ import colors from "../../utils/colors";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginBottom: 20
+        marginBottom: 12
     },
     preview: {
         width: "100%",
