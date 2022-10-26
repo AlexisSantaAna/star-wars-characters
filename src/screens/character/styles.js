@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#000055",
-    margin: 10,
+    margin: 20,
     borderRadius: 6,
     borderColor: "#fff",
     borderWidth: 2,

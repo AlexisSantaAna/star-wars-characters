@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.black,
     },
     scrollView: {
+        flex: 1,
         justifyContent: "center",
         alignItems: "center"
     },
@@ -20,9 +21,8 @@ export const styles = StyleSheet.create({
     preview: {
         flexDirection: "row",      
         marginTop: 20,
-        width: "100%",
-        height: 450,
-        width: 300,
+        width: "90%",
+        height: "80%",
         marginBottom: 10,
         alignItems: "center",
         justifyContent: "center",
@@ -35,7 +35,17 @@ export const styles = StyleSheet.create({
         height: "100%",
     },
     sable: {
+        position: "absolute",
+        right: 10,
         resizeMode: "center",
         height: "100%"
+    },
+    grogu: {
+        position: "absolute",
+        resizeMode: "contain",
+        height: "32%",
+        width: "50%",
+        bottom: 5,
+        right: 8        
     }
 })
