@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Star App",
-    "slug": "Star App",
+    "slug": "star-wars-characters",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
