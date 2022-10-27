@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   container: {
-    margin: 20,
+    margin: 18,
     borderRadius: 6,
     borderColor: "#fff",
     borderWidth: 2
